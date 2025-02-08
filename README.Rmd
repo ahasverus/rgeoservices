@@ -18,6 +18,8 @@ rgeoservices <img src="man/figures/package-sticker.png" align="right" style="flo
 =========================================================
 
 <!-- badges: start -->
+![Package](https://img.shields.io/static/v1?message=Package&logo=r&labelColor=5c5c5c&color=yellowgreen&logoColor=white&label=%20)
+![Lifecycle Maturing](https://img.shields.io/badge/Lifecycle-Maturing-007EC6)
 [![CRAN status](https://www.r-pkg.org/badges/version/rgeoservices)](https://CRAN.R-project.org/package=rgeoservices)
 [![R CMD Check](https://github.com/ahasverus/rgeoservices/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ahasverus/rgeoservices/actions/workflows/R-CMD-check.yaml)
 [![Website](https://github.com/ahasverus/rgeoservices/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/ahasverus/rgeoservices/actions/workflows/pkgdown.yaml)
