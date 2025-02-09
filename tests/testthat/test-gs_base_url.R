@@ -1,6 +1,6 @@
-## Test demo ----
+## Tests gs_base_url() ----
 
-test_that("Test gs_base_url()", {
+test_that("Test gs_base_url() - Success", {
   
   x <- gs_base_url()
 
