@@ -21,6 +21,7 @@ Imports:
     httr2,
     sf
 Suggests: 
+    httptest2,
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
