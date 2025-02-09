@@ -113,9 +113,7 @@ gs_get_isochrone <- function(longitude, latitude, cost_value, profile = "car",
     sf::st_as_sf(coords = 1:2, 
                  crs    = sf::st_crs(4326))
 
-  france <- rnaturalearth::ne_countries(country = "France")
-
-  is_in_france <- sf::st_intersects(location, france, sparse = FALSE)
+  is_in_france <- sf::st_intersects(location, gadm_fra0, sparse = FALSE)
 
   if (!any(is_in_france)) {
     stop("The function uses the IGN API and only works with French location")
