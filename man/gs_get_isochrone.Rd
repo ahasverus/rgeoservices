@@ -42,14 +42,21 @@ departure points to the arrival point (defined by \code{longitude} and
 The isochrone as a \verb{sf POLYGON} object.
 }
 \description{
-A short description...
+Queries the Geoservices (IGN) API using the \strong{/isochrone} endpoint to
+calculate an isochrone around a French (mainland) location. This service
+uses the IGN BD TOPO® Valhalla to get road data.
+
+An isochrone is an area linking the points accessible by a given means of
+transport (argument \code{profile}) in a given time (argument \code{cost_value}).
+
+The API documentation is available \href{https://www.geoportail.gouv.fr/depot/swagger/itineraire.html#/Utilisation/isochrone}{here}.
 }
 \examples{
 \dontrun{
 # Set Florac-Trois-Rivieres, Lozere coordinates ----
 
-florac <- data.frame(longitude  =  3.59608777559441,
-                     latitude   = 44.32690171172478)
+florac <- data.frame(longitude  =  3.59608777,
+                     latitude   = 44.32690171)
 
 
 # Isochrone of one hour around Florac-Trois-Rivieres, Lozere (by car) ----

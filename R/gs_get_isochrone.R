@@ -1,7 +1,14 @@
 #' Calculate an isochrone around a French location
 #' 
 #' @description
-#' A short description...
+#' Queries the Geoservices (IGN) API using the **/isochrone** endpoint to 
+#' calculate an isochrone around a French (mainland) location. This service 
+#' uses the IGN BD TOPO® Valhalla to get road data.
+#' 
+#' An isochrone is an area linking the points accessible by a given means of 
+#' transport (argument `profile`) in a given time (argument `cost_value`).
+#' 
+#' The API documentation is available [here](https://www.geoportail.gouv.fr/depot/swagger/itineraire.html#/Utilisation/isochrone).
 #' 
 #' @param longitude a `numeric` of length 1. The longitude of the location 
 #'   defined in the WGS84 system. The location must belongs to Mainland France.
@@ -35,8 +42,8 @@
 #' \dontrun{
 #' # Set Florac-Trois-Rivieres, Lozere coordinates ----
 #' 
-#' florac <- data.frame(longitude  =  3.59608777559441,
-#'                      latitude   = 44.32690171172478)
+#' florac <- data.frame(longitude  =  3.59608777,
+#'                      latitude   = 44.32690171)
 #' 
 #' 
 #' # Isochrone of one hour around Florac-Trois-Rivieres, Lozere (by car) ----
