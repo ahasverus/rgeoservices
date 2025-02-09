@@ -32,6 +32,7 @@
 #' @export
 #' 
 #' @examples
+#' \dontrun{
 #' # Set Florac-Trois-Rivieres, Lozere coordinates ----
 #' 
 #' florac <- data.frame(longitude  =  3.59608777559441,
@@ -70,6 +71,7 @@
 #'   geom_sf(data = iso_foot, fill = "darkgreen", col = "white") +
 #'   geom_sf(data = florac, col = "white", shape = 19) +
 #'   theme_bw()
+#' }
 
 gs_get_isochrone <- function(longitude, latitude, cost_value, profile = "car", 
                              direction = "departure", time_unit = "hour") {

@@ -45,6 +45,7 @@ The isochrone as a \verb{sf POLYGON} object.
 A short description...
 }
 \examples{
+\dontrun{
 # Set Florac-Trois-Rivieres, Lozere coordinates ----
 
 florac <- data.frame(longitude  =  3.59608777559441,
@@ -83,4 +84,5 @@ ggplot() +
   geom_sf(data = iso_foot, fill = "darkgreen", col = "white") +
   geom_sf(data = florac, col = "white", shape = 19) +
   theme_bw()
+}
 }
