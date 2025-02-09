@@ -324,6 +324,9 @@ test_that("Test gs_get_isochrone() - Error (coordinates)", {
 
 with_mock_dir("gs_get_isochrone", {
 
+  skip_on_cran()
+  skip_if_offline()
+
   test_that("Test gs_get_isochrone() - Success (default)", {
     
     x <- gs_get_isochrone(longitude  = good_coords[1], 
