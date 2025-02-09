@@ -158,3 +158,32 @@ match_arg <- function(x, values) {
   invisible(NULL)
 }
 
+
+#' Check if a location if mainland France
+#' 
+#' @note **For internal purposes only**
+#' 
+#' @noRd
+
+check_if_in_france <- function(x, y) {
+
+  check_required_arg(x)
+  check_numeric_arg(x)
+  check_arg_length(x, 1L)
+
+  check_required_arg(y)
+  check_numeric_arg(y)
+  check_arg_length(y, 1L)
+
+  location <- data.frame(x, y) |> 
+    sf::st_as_sf(coords = 1:2, 
+                 crs    = sf::st_crs(4326))
+
+  is_in_france <- sf::st_intersects(location, gadm_fra0, sparse = FALSE)
+
+  if (!any(is_in_france)) {
+    stop("This function only works with French (mainland) location")
+  }
+
+  invisible(NULL)
+}

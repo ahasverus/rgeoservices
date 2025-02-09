@@ -109,15 +109,7 @@ gs_get_isochrone <- function(longitude, latitude, cost_value, profile = "car",
 
   ## Check for metropolitan France location ----
 
-  location <- data.frame(longitude, latitude) |> 
-    sf::st_as_sf(coords = 1:2, 
-                 crs    = sf::st_crs(4326))
-
-  is_in_france <- sf::st_intersects(location, gadm_fra0, sparse = FALSE)
-
-  if (!any(is_in_france)) {
-    stop("The function uses the IGN API and only works with French location")
-  }
+  check_if_in_france(longitude, latitude)
 
   
   ## Prepare request ----
