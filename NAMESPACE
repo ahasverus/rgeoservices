@@ -2,6 +2,7 @@
 
 export(gs_get_coordinates)
 export(gs_get_elevation)
+export(gs_get_geocode)
 export(gs_get_isochrone)
 export(gs_get_isodistance)
 export(gs_get_poi_categories)
