@@ -1,0 +1,13 @@
+structure(list(method = "GET", url = "https://data.geopf.fr/geocodage/reverse?lon=3.896549&lat=43.59884&index=poi&limit=10&type=&category=mairie&postcode=&city=Montpellier", 
+    status_code = 200L, headers = structure(list(date = "Wed, 12 Feb 2025 07:50:23 GMT", 
+        `set-cookie` = "REDACTED", `content-type` = "application/json; charset=utf-8", 
+        vary = "Origin", etag = "W/\"1fc-/7MR4jdXj9ka7q3dloS6sXf7OCo\"", 
+        `content-encoding` = "gzip", `strict-transport-security` = "max-age=15724800; includeSubDomains", 
+        `access-control-allow-origin` = "*", `access-control-allow-credentials` = "true", 
+        `access-control-allow-methods` = "GET, PUT, POST, DELETE, PATCH, OPTIONS", 
+        `access-control-allow-headers` = "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,Content-Disposition,Content-Length,X-Community", 
+        `access-control-max-age` = "1728000", `transfer-encoding` = "chunked", 
+        `x-iplb-request-id` = "5D184490:B63E_91EFC1E7:01BB_67AC52BF_739AE25:3099", 
+        `x-iplb-instance` = "61218"), class = "httr2_headers"), 
+    body = charToRaw("{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[3.896969,43.5985]},\"properties\":{\"name\":[\"Mairie de Montpellier\"],\"toponym\":\"Mairie de Montpellier\",\"category\":[\"mairie\",\"zone d'activité ou d'intérêt\"],\"classification\":9,\"importance\":0.2,\"extrafields\":{\"cleabs\":\"SURFACTI0000000044349527\"},\"citycode\":[\"34172\",\"34\"],\"city\":[\"Montpellier\"],\"postcode\":[\"34000\",\"34070\",\"34080\",\"34090\"],\"territory\":\"METROPOLE\",\"distance\":51,\"score\":0.9949,\"_type\":\"poi\"}}]}"), 
+    cache = new.env(parent = emptyenv())), class = "httr2_response")

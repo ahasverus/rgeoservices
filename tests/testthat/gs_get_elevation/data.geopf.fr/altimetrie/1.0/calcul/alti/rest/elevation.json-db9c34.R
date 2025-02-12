@@ -1,0 +1,13 @@
+structure(list(method = "GET", url = "https://data.geopf.fr/altimetrie/1.0/calcul/alti/rest/elevation.json?lon=3.5960877%7C3.5960877%7C3.5960877&lat=44.3269017%7C44.3269017%7C44.3269017&resource=ign_rge_alti_wld&delimiter=%7C&indent=false&measures=false&zonly=false", 
+    status_code = 200L, headers = structure(list(date = "Wed, 12 Feb 2025 07:49:51 GMT", 
+        `set-cookie` = "REDACTED", `content-type` = "application/json", 
+        `www-authenticate` = "Key realm=\"kong\"", `cache-control` = "private, max-age=1814400", 
+        `content-encoding` = "gzip", `strict-transport-security` = "max-age=15724800; includeSubDomains", 
+        `access-control-allow-origin` = "*", `access-control-allow-credentials` = "true", 
+        `access-control-allow-methods` = "GET, PUT, POST, DELETE, PATCH, OPTIONS", 
+        `access-control-allow-headers` = "DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization,Content-Disposition,Content-Length,X-Community", 
+        `access-control-max-age` = "1728000", `transfer-encoding` = "chunked", 
+        `x-iplb-request-id` = "5D184490:C36E_91EFC1E7:01BB_67AC529F_7384CF0:3099", 
+        `x-iplb-instance` = "61218"), class = "httr2_headers"), 
+    body = charToRaw("{\"elevations\": [{\"lon\": 3.5960877, \"lat\": 44.3269017, \"z\": 547.42, \"acc\": \"Variable suivant la source de mesure\"}, {\"lon\": 3.5960877, \"lat\": 44.3269017, \"z\": 547.42, \"acc\": \"Variable suivant la source de mesure\"}, {\"lon\": 3.5960877, \"lat\": 44.3269017, \"z\": 547.42, \"acc\": \"Variable suivant la source de mesure\"}]}"), 
+    cache = new.env(parent = emptyenv())), class = "httr2_response")

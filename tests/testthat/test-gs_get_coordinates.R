@@ -360,15 +360,6 @@ test_that("Test gs_get_coordinates() - Error (category)", {
   expect_error(
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
-                       index    = "poi", 
-                       category = "toto"), 
-    "Unvalid value for 'category'. Please use 'gs_get_poi_categories()'",
-    fixed = TRUE
-  )
-
-  expect_error(
-    gs_get_coordinates(query    = "Paris",
-                       limit    = 1,
                        index    = "address", 
                        category = "lac"), 
     "Argument 'category' can be used only with index = 'poi'",
@@ -473,6 +464,25 @@ test_that("Test gs_get_coordinates() - Error (latitude)", {
     fixed = TRUE
   )
 })
+
+
+with_mock_dir("gs_get_coordinates_error", {
+
+  skip_on_cran()
+  skip_if_offline()
+
+  test_that("Test gs_get_coordinates() - Error (poi category)", {
+
+    expect_error(
+      gs_get_coordinates(query    = "Paris",
+                         limit    = 1,
+                         index    = "poi", 
+                         category = "toto"), 
+      "Unvalid value for 'category'. Please use 'gs_get_poi_categories()'",
+      fixed = TRUE
+    )
+  })
+}, simplify = FALSE)
 
 
 with_mock_dir("gs_get_coordinates", {
