@@ -76,8 +76,7 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>The R package <code>rgeoservices</code> is a R client streamlining access to the services provided by the French National Institute of Geographic and Forest Information (IGN) through its open access <a href="https://geoservices.ign.fr/documentation/services/services-geoplateforme" class="external-link">Geoplatform</a>.</p>
-<p><strong>N.B.</strong> This platform offers services to retrieve geographical information only for France.</p>
+<p>The R package <code>rgeoservices</code> is a R client streamlining access to the services provided by the French National Institute of Geographic and Forest Information (IGN) through its open access <a href="https://geoservices.ign.fr/documentation/services/services-geoplateforme" class="external-link">Geoplatform</a>. This Geoplatform can be used to query the IGN BD TOPO® database to retrieve geographical information (only for France)</p>
 </div>
 <div class="section level2">
 <h2 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
@@ -85,14 +84,28 @@
 <p>Currently <code>rgeoservices</code> can access to the following services:</p>
 <ul>
 <li>
-<a href="https://geoservices.ign.fr/documentation/services/services-geoplateforme/geocodage" class="external-link"><strong>Geocoding service</strong></a> to obtain the geographic coordinates of an address or a point of interest. The reverse operation is also possible.</li>
-<li>
-<a href="https://geoservices.ign.fr/documentation/services/services-geoplateforme/altimetrie" class="external-link"><strong>Altimetry service</strong></a> to obtain the altitude of a geographical point and a longitudinal profile.</li>
-<li>
-<a href="https://geoservices.ign.fr/documentation/services/services-geoplateforme/itineraire" class="external-link"><strong>Route planner service</strong></a> to obtain a route between two points.</li>
-<li>
-<a href="https://geoservices.ign.fr/documentation/services/services-geoplateforme/itineraire" class="external-link"><strong>Isochrone/Isodistance service</strong></a> to get to the accessible area within a certain travel time/distance.</li>
+<strong>Geocoding service</strong> <a href="https://geoservices.ign.fr/documentation/services/services-geoplateforme/geocodage" class="external-link"><span class="emoji" data-emoji="globe_with_meridians">🌐</span></a>
+</li>
 </ul>
+<p>Service used to obtain the geographic coordinates of an address or a point of interest. The reverse operation is also possible. See the <a href="https://ahasverus.github.io/rgeoservices/reference/gs_get_geocode.html" class="external-link"><code>gs_get_geocode()</code></a> and <a href="https://ahasverus.github.io/rgeoservices/reference/gs_get_coordinates.html" class="external-link"><code>gs_get_coordinates()</code></a> functions.</p>
+<ul>
+<li>
+<strong>Altimetry service</strong> <a href="https://geoservices.ign.fr/documentation/services/services-geoplateforme/altimetrie" class="external-link"><span class="emoji" data-emoji="globe_with_meridians">🌐</span></a>
+</li>
+</ul>
+<p>Service used to obtain the altitude of a geographical point and a longitudinal profile. See the <a href="https://ahasverus.github.io/rgeoservices/reference/gs_get_elevation.html" class="external-link"><code>gs_get_elevation()</code></a> function.</p>
+<ul>
+<li>
+<strong>Route planner service</strong> <a href="https://geoservices.ign.fr/documentation/services/services-geoplateforme/itineraire" class="external-link"><span class="emoji" data-emoji="globe_with_meridians">🌐</span></a>
+</li>
+</ul>
+<p>Service used to obtain a route between two points. See the <a href="https://ahasverus.github.io/rgeoservices/reference/gs_get_itinerary.html" class="external-link"><code>gs_get_itinerary()</code></a> function.</p>
+<ul>
+<li>
+<strong>Isochrone/Isodistance service</strong> <a href="https://geoservices.ign.fr/documentation/services/services-geoplateforme/itineraire" class="external-link"><span class="emoji" data-emoji="globe_with_meridians">🌐</span></a>
+</li>
+</ul>
+<p>Service used to get to the accessible area within a certain travel time/distance. See the <a href="https://ahasverus.github.io/rgeoservices/reference/gs_get_isochrone.html" class="external-link"><code>gs_get_isochrone()</code></a> and <a href="https://ahasverus.github.io/rgeoservices/reference/gs_get_isodistance.html" class="external-link"><code>gs_get_isodistance()</code></a> functions.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -121,7 +134,7 @@
 </h2>
 <p>Please cite <code>rgeoservices</code> as:</p>
 <blockquote>
-<p>Casajus Nicolas (2025) rgeoservices: An R client to IGN Geoservices API. R package version 0.0.0.9000. <a href="https://github.com/ahasverus/rgeoservices/" class="external-link uri">https://github.com/ahasverus/rgeoservices/</a></p>
+<p>Casajus Nicolas (2025) rgeoservices: A R client for the IGN Geoservices API. R package version 0.0.0.9000. <a href="https://github.com/ahasverus/rgeoservices/" class="external-link uri">https://github.com/ahasverus/rgeoservices/</a></p>
 </blockquote>
 </div>
 <div class="section level2">
