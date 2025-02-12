@@ -9,6 +9,7 @@
 <url><loc>/index.html</loc></url>
 <url><loc>/reference/gs_get_coordinates.html</loc></url>
 <url><loc>/reference/gs_get_elevation.html</loc></url>
+<url><loc>/reference/gs_get_geocode.html</loc></url>
 <url><loc>/reference/gs_get_isochrone.html</loc></url>
 <url><loc>/reference/gs_get_isodistance.html</loc></url>
 <url><loc>/reference/gs_get_poi_categories.html</loc></url>
