@@ -2,7 +2,7 @@ citHeader("To cite rgeoservices in publications use:")
 
 bibentry(
   bibtype = "Manual",
-  title   = "rgeoservices: {An} {R} package to ...",
+  title   = "rgeoservices: {A} {R} client for the IGN Geoservices API",
   author  = c(person("Casajus Nicolas")),
   year    = "2025",
   note    = "R package version 0.0.0.9000",
