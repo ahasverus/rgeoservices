@@ -1,6 +1,6 @@
 Package: rgeoservices
 Type: Package
-Title: The Title of the Project
+Title: A R Client for the IGN Geoservices API 
 Version: 0.0.0.9000
 Authors@R: c(
     person(given   = "Nicolas",
@@ -8,8 +8,10 @@ Authors@R: c(
            role    = c("aut", "cre", "cph"),
            email   = "rdev.nc@gmail.com",
            comment = c(ORCID = "0000-0002-5537-5294")))
-Description: A paragraph providing a full description of the project (on 
-    several lines...)
+Description: A set of functions to query the API provided by the French National
+    Institute of Geographic and Forest Information (IGN) through its online
+    Geoplateform 
+    <https://geoservices.ign.fr/documentation/services/services-geoplateforme>.
 URL: https://github.com/ahasverus/rgeoservices
 BugReports: https://github.com/ahasverus/rgeoservices/issues
 License: GPL (>= 2)
