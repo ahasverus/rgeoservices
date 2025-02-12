@@ -36,9 +36,8 @@ The R package `rgeoservices` is a R client streamlining access to the
 services provided by the French National Institute of Geographic and
 Forest Information (IGN) through its open access
 [Geoplatform](https://geoservices.ign.fr/documentation/services/services-geoplateforme).
-
-**N.B.** This platform offers services to retrieve geographical
-information only for France.
+This Geoplatform can be used to query the IGN BD TOPO® database to
+retrieve geographical information (only for France)
 
 ## Features
 
@@ -47,17 +46,30 @@ Currently `rgeoservices` can access to the following services:
 - [**Geocoding
   service**](https://geoservices.ign.fr/documentation/services/services-geoplateforme/geocodage)
   to obtain the geographic coordinates of an address or a point of
-  interest. The reverse operation is also possible.
+  interest. The reverse operation is also possible. See the
+  [`gs_get_geocode()`](https://github.com/ahasverus/rgeoservices/reference/gs_get_geocode.html)
+  and
+  [`gs_get_coordinates()`](https://nicolascasajus.fr/rgeoservices/reference/gs_get_coordinates.html)
+  functions.
 - [**Altimetry
   service**](https://geoservices.ign.fr/documentation/services/services-geoplateforme/altimetrie)
   to obtain the altitude of a geographical point and a longitudinal
-  profile.
+  profile. See the
+  [`gs_get_elevation()`](https://github.com/ahasverus/rgeoservices/reference/gs_get_elevation.html)
+  function.
 - [**Route planner
   service**](https://geoservices.ign.fr/documentation/services/services-geoplateforme/itineraire)
-  to obtain a route between two points.
+  to obtain a route between two points. See the
+  [`gs_get_itinerary()`](https://github.com/ahasverus/rgeoservices/reference/gs_get_itinerary.html)
+  function.
 - [**Isochrone/Isodistance
   service**](https://geoservices.ign.fr/documentation/services/services-geoplateforme/itineraire)
   to get to the accessible area within a certain travel time/distance.
+  See the
+  [`gs_get_isochrone()`](https://nicolascasajus.fr/rgeoservices/reference/gs_get_isochrone.html)
+  and
+  [`gs_get_isodistance()`](https://github.com/ahasverus/rgeoservices/reference/gs_get_isodistance.html)
+  functions.
 
 ## Installation
 
