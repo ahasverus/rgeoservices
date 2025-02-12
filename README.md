@@ -47,28 +47,28 @@ Currently `rgeoservices` can access to the following services:
   service**](https://geoservices.ign.fr/documentation/services/services-geoplateforme/geocodage)
   to obtain the geographic coordinates of an address or a point of
   interest. The reverse operation is also possible. See the
-  [`gs_get_geocode()`](https://github.com/ahasverus/rgeoservices/reference/gs_get_geocode.html)
+  [`gs_get_geocode()`](https://ahasverus.github.io/rgeoservices/reference/gs_get_geocode.html)
   and
-  [`gs_get_coordinates()`](https://nicolascasajus.fr/rgeoservices/reference/gs_get_coordinates.html)
+  [`gs_get_coordinates()`](https://ahasverus.github.io/rgeoservices/reference/gs_get_coordinates.html)
   functions.
 - [**Altimetry
   service**](https://geoservices.ign.fr/documentation/services/services-geoplateforme/altimetrie)
   to obtain the altitude of a geographical point and a longitudinal
   profile. See the
-  [`gs_get_elevation()`](https://github.com/ahasverus/rgeoservices/reference/gs_get_elevation.html)
+  [`gs_get_elevation()`](https://ahasverus.github.io/rgeoservices/reference/gs_get_elevation.html)
   function.
 - [**Route planner
   service**](https://geoservices.ign.fr/documentation/services/services-geoplateforme/itineraire)
   to obtain a route between two points. See the
-  [`gs_get_itinerary()`](https://github.com/ahasverus/rgeoservices/reference/gs_get_itinerary.html)
+  [`gs_get_itinerary()`](https://ahasverus.github.io/rgeoservices/reference/gs_get_itinerary.html)
   function.
 - [**Isochrone/Isodistance
   service**](https://geoservices.ign.fr/documentation/services/services-geoplateforme/itineraire)
   to get to the accessible area within a certain travel time/distance.
   See the
-  [`gs_get_isochrone()`](https://nicolascasajus.fr/rgeoservices/reference/gs_get_isochrone.html)
+  [`gs_get_isochrone()`](https://ahasverus.github.io/rgeoservices/reference/gs_get_isochrone.html)
   and
-  [`gs_get_isodistance()`](https://github.com/ahasverus/rgeoservices/reference/gs_get_isodistance.html)
+  [`gs_get_isodistance()`](https://ahasverus.github.io/rgeoservices/reference/gs_get_isodistance.html)
   functions.
 
 ## Installation
