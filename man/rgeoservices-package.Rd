@@ -4,9 +4,9 @@
 \name{rgeoservices-package}
 \alias{rgeoservices}
 \alias{rgeoservices-package}
-\title{rgeoservices: The Title of the Project}
+\title{rgeoservices: A R Client for the IGN Geoservices API}
 \description{
-A paragraph providing a full description of the project (on several lines...)
+A set of functions to query the API provided by the French National Institute of Geographic and Forest Information (IGN) through its online Geoplateform \url{https://geoservices.ign.fr/documentation/services/services-geoplateforme}.
 }
 \seealso{
 Useful links:
