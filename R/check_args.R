@@ -73,6 +73,25 @@ check_character_arg <- function(x) {
 }
 
 
+#' Check is an argument is a logical
+#' 
+#' @note **For internal purposes only**
+#' 
+#' @noRd
+
+check_logical_arg <- function(x) {
+
+  check_required_arg(x)
+
+  if (!is.logical(x)) {
+    stop("The argument '", deparse(substitute(x)), "' must be a logical", 
+         call. = FALSE)
+  }
+
+  invisible(NULL)
+}
+
+
 #' Check the length of an argument
 #' 
 #' @note **For internal purposes only**

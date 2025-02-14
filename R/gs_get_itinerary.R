@@ -218,6 +218,11 @@ gs_get_itinerary <- function(start, end, intermediates = NULL, profile = "car",
   check_arg_length(distance_unit, len = 1L)
   match_arg(distance_unit, values = c("meter", "kilometer"))
 
+  check_required_arg(by_feature)
+  check_logical_arg(by_feature)
+  check_arg_length(by_feature, len = 1L)
+
+
   ## Prepare request ----
 
   api_endpoint <- gs_base_url() |> 

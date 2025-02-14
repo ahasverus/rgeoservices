@@ -423,6 +423,50 @@ test_that("Test gs_get_itinerary() - Error (distance_unit)", {
 })
 
 
+test_that("Test gs_get_itinerary() - Error (by_feature)", {
+
+  expect_error(
+    gs_get_itinerary(
+      start      = c(3.708864, 43.93584), 
+      end        = c(4.077405, 44.12519),
+      by_feature = NULL
+    ), 
+    "The argument 'by_feature' is required",
+    fixed = TRUE
+  )
+
+  expect_error(
+    gs_get_itinerary(
+      start      = c(3.708864, 43.93584), 
+      end        = c(4.077405, 44.12519),
+      by_feature = NA
+    ), 
+    "The argument 'by_feature' is required",
+    fixed = TRUE
+  )
+
+  expect_error(
+    gs_get_itinerary(
+      start      = c(3.708864, 43.93584), 
+      end        = c(4.077405, 44.12519),
+      by_feature = "toto"
+    ), 
+    "The argument 'by_feature' must be a logical",
+    fixed = TRUE
+  )
+
+  expect_error(
+    gs_get_itinerary(
+      start      = c(3.708864, 43.93584), 
+      end        = c(4.077405, 44.12519),
+      by_feature = c(TRUE, FALSE)
+    ), 
+    "The argument 'by_feature' must be of length 1",
+    fixed = TRUE
+  )
+})
+
+
 with_mock_dir("gs_get_itinerary", {
 
   skip_on_cran()
