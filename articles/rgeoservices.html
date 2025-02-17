@@ -62,7 +62,14 @@
 
 
 
-      </header><div class="row">
+      </header><link href="rgeoservices_files/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="rgeoservices_files/htmlwidgets-1.6.4/htmlwidgets.js"></script><link href="rgeoservices_files/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="rgeoservices_files/leaflet-1.3.1/leaflet.js"></script><link href="rgeoservices_files/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="rgeoservices_files/proj4-2.6.2/proj4.min.js"></script><script src="rgeoservices_files/Proj4Leaflet-1.0.1/proj4leaflet.js"></script><link href="rgeoservices_files/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="rgeoservices_files/leaflet-binding-2.2.2/leaflet.js"></script><script src="rgeoservices_files/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script><script src="rgeoservices_files/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script><link href="rgeoservices_files/HomeButton-0.0.1/home-button.css" rel="stylesheet">
+<script src="rgeoservices_files/HomeButton-0.0.1/home-button.js"></script><script src="rgeoservices_files/HomeButton-0.0.1/easy-button-src.min.js"></script><script src="rgeoservices_files/clipboard-0.0.1/setClipboardText.js"></script><link href="rgeoservices_files/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet">
+<link href="rgeoservices_files/mapviewCSS-0.0.1/mapview.css" rel="stylesheet">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Get started</h1>
@@ -75,8 +82,334 @@
 
     
     
+<p>The package <code>rgeoservices</code> is a R client streamlining
+access to the services provided by the French National Institute of
+Geographic and Forest Information (IGN) through its open access <a href="https://geoservices.ign.fr/documentation/services/services-geoplateforme" class="external-link">Geoplatform</a>.
+This Geoplatform can be used to query the IGN BD TOPO® database to
+retrieve geographical information.</p>
+<p><strong>Note:</strong> The IGN Geoplatform provides information
+<strong>only for French locations</strong>.</p>
+<p>Let’s load and attach the package <code>rgeoservices</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ahasverus/rgeoservices" class="external-link">rgeoservices</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">## Attach 'rgeoservices' package ----</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ahasverus/rgeoservices" class="external-link">rgeoservices</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/r-spatial/mapview" class="external-link">mapview</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
+<div class="section level2">
+<h2 id="the-geocoding-service">The Geocoding service<a class="anchor" aria-label="anchor" href="#the-geocoding-service"></a>
+</h2>
+<p>The IGN Geoplatform provides the <a href="https://geoservices.ign.fr/documentation/services/services-geoplateforme/geocodage" class="external-link">Geocoding
+service</a>. This service can be used in two different ways:</p>
+<ul>
+<li>to retrieve geographical coordinates and administrative information
+from an address (or a point of interest)</li>
+<li>to retrieve an address (or a point of interest) from geographical
+coordinates.</li>
+</ul>
+<div class="section level3">
+<h3 id="retrieve-geographical-coordinates">Retrieve geographical coordinates<a class="anchor" aria-label="anchor" href="#retrieve-geographical-coordinates"></a>
+</h3>
+<p>User can retrieve geographical coordinates and administrative
+information (postal code, INSEE code, city, etc.) from any French
+address (postal address, street, city) or any point of interest (POI)
+such as city hall, museum, public garden, lake, etc. This service is
+implemented in the <a href="https://ahasverus.github.io/rgeoservices/reference/gs_get_coordinates.html" class="external-link"><code>gs_get_coordinates()</code></a>
+function of <code>rgeoservices</code>.</p>
+<div class="section level4">
+<h4 id="postal-address">Postal address<a class="anchor" aria-label="anchor" href="#postal-address"></a>
+</h4>
+<p>Let’s try to retrieve geographical coordinates of a <strong>postal
+address</strong>.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Retrieve coordinates from an address ----</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gs_get_coordinates.html">gs_get_coordinates</a></span><span class="op">(</span></span>
+<span>  query <span class="op">=</span> <span class="st">"5 rue de l'Ecole de Médecine"</span>, </span>
+<span>  index <span class="op">=</span> <span class="st">"address"</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fl">10</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<table class="table">
+<colgroup>
+<col width="12%">
+<col width="4%">
+<col width="3%">
+<col width="17%">
+<col width="12%">
+<col width="3%">
+<col width="5%">
+<col width="11%">
+<col width="5%">
+<col width="3%">
+<col width="3%">
+<col width="10%">
+<col width="3%">
+<col width="3%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">query</th>
+<th align="right">longitude</th>
+<th align="right">latitude</th>
+<th align="left">label</th>
+<th align="left">name</th>
+<th align="left">toponym</th>
+<th align="left">housenumber</th>
+<th align="left">street</th>
+<th align="left">city</th>
+<th align="left">postcode</th>
+<th align="left">citycode</th>
+<th align="left">context</th>
+<th align="left">category</th>
+<th align="right">score</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">5 rue de l’Ecole de Médecine</td>
+<td align="right">2.341955</td>
+<td align="right">48.85059</td>
+<td align="left">5 Rue de l’Ecole de Médecine 75006 Paris</td>
+<td align="left">5 Rue de l’Ecole de Médecine</td>
+<td align="left">NA</td>
+<td align="left">5</td>
+<td align="left">Rue de l’Ecole de Médecine</td>
+<td align="left">Paris</td>
+<td align="left">75006</td>
+<td align="left">75106</td>
+<td align="left">75, Paris, Île-de-France</td>
+<td align="left">NA</td>
+<td align="right">0.96654</td>
+</tr>
+<tr class="even">
+<td align="left">5 rue de l’Ecole de Médecine</td>
+<td align="right">3.873477</td>
+<td align="right">43.61278</td>
+<td align="left">5 Rue Ecole de Médecine 34000 Montpellier</td>
+<td align="left">5 Rue Ecole de Médecine</td>
+<td align="left">NA</td>
+<td align="left">5</td>
+<td align="left">Rue Ecole de Médecine</td>
+<td align="left">Montpellier</td>
+<td align="left">34000</td>
+<td align="left">34172</td>
+<td align="left">34, Hérault, Occitanie</td>
+<td align="left">NA</td>
+<td align="right">0.80125</td>
+</tr>
+</tbody>
+</table>
+<p>The argument <code>index</code> is used to indicate to search from an
+address (<code>index = 'address'</code>) or a point of interest
+(<code>index = 'poi'</code>). Depending on the value of this argument,
+some columns can be <code>NA</code>.</p>
+<p>User can filter results by using additional parameters:</p>
+<ul>
+<li>
+<code>postcode</code> or <code>city</code> to specify the
+<strong>postal code</strong> or the <strong>city name</strong>
+associated to the address</li>
+<li>
+<code>type</code> to specify the precision of the address,
+e.g. <code>housenumber</code>, <code>street</code>,
+<code>locality</code>, or <code>municipality</code>
+</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Retrieve coordinates from an address (with filters) ----</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gs_get_coordinates.html">gs_get_coordinates</a></span><span class="op">(</span></span>
+<span>  query    <span class="op">=</span> <span class="st">"5 rue de l'Ecole de Médecine"</span>, </span>
+<span>  index    <span class="op">=</span> <span class="st">"address"</span>,</span>
+<span>  limit    <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>  postcode <span class="op">=</span> <span class="fl">34000</span>,</span>
+<span>  type     <span class="op">=</span> <span class="st">"housenumber"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<table style="width:100%;" class="table">
+<colgroup>
+<col width="12%">
+<col width="4%">
+<col width="3%">
+<col width="18%">
+<col width="10%">
+<col width="3%">
+<col width="5%">
+<col width="9%">
+<col width="5%">
+<col width="3%">
+<col width="3%">
+<col width="10%">
+<col width="3%">
+<col width="3%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">query</th>
+<th align="right">longitude</th>
+<th align="right">latitude</th>
+<th align="left">label</th>
+<th align="left">name</th>
+<th align="left">toponym</th>
+<th align="left">housenumber</th>
+<th align="left">street</th>
+<th align="left">city</th>
+<th align="left">postcode</th>
+<th align="left">citycode</th>
+<th align="left">context</th>
+<th align="left">category</th>
+<th align="right">score</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left">5 rue de l’Ecole de Médecine</td>
+<td align="right">3.873477</td>
+<td align="right">43.61278</td>
+<td align="left">5 Rue Ecole de Médecine 34000 Montpellier</td>
+<td align="left">5 Rue Ecole de Médecine</td>
+<td align="left">NA</td>
+<td align="left">5</td>
+<td align="left">Rue Ecole de Médecine</td>
+<td align="left">Montpellier</td>
+<td align="left">34000</td>
+<td align="left">34172</td>
+<td align="left">34, Hérault, Occitanie</td>
+<td align="left">NA</td>
+<td align="right">0.80125</td>
+</tr></tbody>
+</table>
+<p>Using these filters can help getting better results.</p>
+<p>Let’s display the result on an interactive map.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Convert to spatial object ----</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span></span>
+<span>  x      <span class="op">=</span> <span class="va">x</span>,</span>
+<span>  coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"longitude"</span>, <span class="st">'latitude'</span><span class="op">)</span>,</span>
+<span>  crs    <span class="op">=</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="fl">4326</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Setup 'mapview' ----</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/mapview/man/mapviewOptions.html" class="external-link">mapviewOptions</a></span><span class="op">(</span></span>
+<span>  basemaps           <span class="op">=</span> <span class="st">"OpenStreetMap"</span>,</span>
+<span>  legend             <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  layers.control.pos <span class="op">=</span> <span class="st">"topright"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Interactive map of the result ----</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/mapview/man/mapView.html" class="external-link">mapview</a></span><span class="op">(</span></span>
+<span>  x           <span class="op">=</span> <span class="va">x</span>, </span>
+<span>  color       <span class="op">=</span> <span class="st">"white"</span>, </span>
+<span>  col.regions <span class="op">=</span> <span class="st">"red"</span>, </span>
+<span>  cex         <span class="op">=</span> <span class="fl">10</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
+<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"options":{"minZoom":1,"maxZoom":52,"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"preferCanvas":false,"bounceAtZoomLimits":false,"maxBounds":[[[-90,-370]],[[90,370]]]},"calls":[{"method":"addProviderTiles","args":["OpenStreetMap","OpenStreetMap","OpenStreetMap",{"errorTileUrl":"","noWrap":false,"detectRetina":false,"pane":"tilePane"}]},{"method":"createMapPane","args":["point",440]},{"method":"addCircleMarkers","args":[43.612779,3.873477,10,null,"x",{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}},"pane":"point","stroke":true,"color":"#FFFFFF","weight":1,"opacity":0.9,"fill":true,"fillColor":"#FF0000","fillOpacity":0.6},null,null,"<div class='scrollableContainer'><table class=mapview-popup id='popup'><tr class='coord'><td><\/td><th><b>Feature ID&emsp;<\/b><\/th><td>1&emsp;<\/td><\/tr><tr><td>1<\/td><th>query&emsp;<\/th><td>5 rue de l'Ecole de Médecine&emsp;<\/td><\/tr><tr><td>2<\/td><th>label&emsp;<\/th><td>5 Rue Ecole de Médecine 34000 Montpellier&emsp;<\/td><\/tr><tr><td>3<\/td><th>name&emsp;<\/th><td>5 Rue Ecole de Médecine&emsp;<\/td><\/tr><tr><td>4<\/td><th>toponym&emsp;<\/th><td>NA&emsp;<\/td><\/tr><tr><td>5<\/td><th>housenumber&emsp;<\/th><td>5&emsp;<\/td><\/tr><tr><td>6<\/td><th>street&emsp;<\/th><td>Rue Ecole de Médecine&emsp;<\/td><\/tr><tr><td>7<\/td><th>city&emsp;<\/th><td>Montpellier&emsp;<\/td><\/tr><tr><td>8<\/td><th>postcode&emsp;<\/th><td>34000&emsp;<\/td><\/tr><tr><td>9<\/td><th>citycode&emsp;<\/th><td>34172&emsp;<\/td><\/tr><tr><td>10<\/td><th>context&emsp;<\/th><td>34, Hérault, Occitanie&emsp;<\/td><\/tr><tr><td>11<\/td><th>category&emsp;<\/th><td>NA&emsp;<\/td><\/tr><tr><td>12<\/td><th>score&emsp;<\/th><td>0.80125&emsp;<\/td><\/tr><tr><td>13<\/td><th>geometry&emsp;<\/th><td>sfc_POINT&emsp;<\/td><\/tr><\/table><\/div>",{"maxWidth":800,"minWidth":50,"autoPan":true,"keepInView":false,"closeButton":true,"closeOnClick":true,"className":""},"1",{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"bottomleft"}]},{"method":"addHomeButton","args":[3.873477,43.612779,3.873477,43.612779,true,"x","Zoom to x","<strong> x <\/strong>","bottomright"]},{"method":"addLayersControl","args":["OpenStreetMap","x",{"collapsed":true,"autoZIndex":true,"position":"topright"}]}],"limits":{"lat":[43.612779,43.612779],"lng":[3.873477,3.873477]},"setView":[[43.612779,3.873477],18,[]]},"evals":[],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (\n      function(el, x, data) {\n      // get the leaflet map\n      var map = this; //HTMLWidgets.find('#' + el.id);\n      // we need a new div element because we have to handle\n      // the mouseover output separately\n      // debugger;\n      function addElement () {\n      // generate new div Element\n      var newDiv = $(document.createElement('div'));\n      // append at end of leaflet htmlwidget container\n      $(el).append(newDiv);\n      //provide ID and style\n      newDiv.addClass('lnlt');\n      newDiv.css({\n      'position': 'relative',\n      'bottomleft':  '0px',\n      'background-color': 'rgba(255, 255, 255, 0.7)',\n      'box-shadow': '0 0 2px #bbb',\n      'background-clip': 'padding-box',\n      'margin': '0',\n      'padding-left': '5px',\n      'color': '#333',\n      'font': '9px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif',\n      'z-index': '700',\n      });\n      return newDiv;\n      }\n\n\n      // check for already existing lnlt class to not duplicate\n      var lnlt = $(el).find('.lnlt');\n\n      if(!lnlt.length) {\n      lnlt = addElement();\n\n      // grab the special div we generated in the beginning\n      // and put the mousmove output there\n\n      map.on('mousemove', function (e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                           ' lon: ' + (e.latlng.lng).toFixed(5) +\n                           ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                           ' | zoom: ' + map.getZoom() +\n                           ' | x: ' + L.CRS.EPSG3857.project(e.latlng).x.toFixed(0) +\n                           ' | y: ' + L.CRS.EPSG3857.project(e.latlng).y.toFixed(0) +\n                           ' | epsg: 3857 ' +\n                           ' | proj4: +proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs ');\n      } else {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      }\n      });\n\n      // remove the lnlt div when mouse leaves map\n      map.on('mouseout', function (e) {\n      var strip = document.querySelector('.lnlt');\n      if( strip !==null) strip.remove();\n      });\n\n      };\n\n      //$(el).keypress(67, function(e) {\n      map.on('preclick', function(e) {\n      if (e.originalEvent.ctrlKey) {\n      if (document.querySelector('.lnlt') === null) lnlt = addElement();\n      lnlt.text(\n                      ' lon: ' + (e.latlng.lng).toFixed(5) +\n                      ' | lat: ' + (e.latlng.lat).toFixed(5) +\n                      ' | zoom: ' + map.getZoom() + ' ');\n      var txt = document.querySelector('.lnlt').textContent;\n      console.log(txt);\n      //txt.innerText.focus();\n      //txt.select();\n      setClipboardText('\"' + txt + '\"');\n      }\n      });\n\n      }\n      ).call(this.getMap(), el, x, data);\n}","data":null},{"code":"function(el, x, data) {\n  return (function(el,x,data){\n           var map = this;\n\n           map.on('keypress', function(e) {\n               console.log(e.originalEvent.code);\n               var key = e.originalEvent.code;\n               if (key === 'KeyE') {\n                   var bb = this.getBounds();\n                   var txt = JSON.stringify(bb);\n                   console.log(txt);\n\n                   setClipboardText('\\'' + txt + '\\'');\n               }\n           })\n        }).call(this.getMap(), el, x, data);\n}","data":null}]}}</script>
+</div>
+<div class="section level4">
+<h4 id="city">City<a class="anchor" aria-label="anchor" href="#city"></a>
+</h4>
+<p>Let’s try to retrieve geographical coordinates of a
+<strong>city</strong>.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Retrieve coordinates from a city ----</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/gs_get_coordinates.html">gs_get_coordinates</a></span><span class="op">(</span></span>
+<span>  query    <span class="op">=</span> <span class="st">"Montpellier"</span>, </span>
+<span>  index    <span class="op">=</span> <span class="st">"address"</span>,</span>
+<span>  limit    <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>  postcode <span class="op">=</span> <span class="fl">34000</span>,</span>
+<span>  type     <span class="op">=</span> <span class="st">"municipality"</span> </span>
+<span><span class="op">)</span></span></code></pre></div>
+<table class="table">
+<colgroup>
+<col width="7%">
+<col width="6%">
+<col width="5%">
+<col width="7%">
+<col width="7%">
+<col width="5%">
+<col width="7%">
+<col width="4%">
+<col width="7%">
+<col width="5%">
+<col width="5%">
+<col width="15%">
+<col width="5%">
+<col width="5%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">query</th>
+<th align="right">longitude</th>
+<th align="right">latitude</th>
+<th align="left">label</th>
+<th align="left">name</th>
+<th align="left">toponym</th>
+<th align="left">housenumber</th>
+<th align="left">street</th>
+<th align="left">city</th>
+<th align="left">postcode</th>
+<th align="left">citycode</th>
+<th align="left">context</th>
+<th align="left">category</th>
+<th align="right">score</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left">Montpellier</td>
+<td align="right">3.87048</td>
+<td align="right">43.61048</td>
+<td align="left">Montpellier</td>
+<td align="left">Montpellier</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">Montpellier</td>
+<td align="left">34000</td>
+<td align="left">34172</td>
+<td align="left">34, Hérault, Occitanie</td>
+<td align="left">NA</td>
+<td align="right">0.96146</td>
+</tr></tbody>
+</table>
+<p>Let’s map the result.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Convert to spatial object ----</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span></span>
+<span>  x      <span class="op">=</span> <span class="va">x</span>,</span>
+<span>  coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"longitude"</span>, <span class="st">'latitude'</span><span class="op">)</span>,</span>
+<span>  crs    <span class="op">=</span> <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_crs.html" class="external-link">st_crs</a></span><span class="op">(</span><span class="fl">4326</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Download static map of France (GADM) ----</span></span>
+<span><span class="va">gadm_fra0</span> <span class="op">&lt;-</span> <span class="fu">geodata</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/geodata/man/gadm.html" class="external-link">gadm</a></span><span class="op">(</span></span>
+<span>  country <span class="op">=</span> <span class="st">"France"</span>,</span>
+<span>  level   <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  path    <span class="op">=</span> <span class="st">"."</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">gadm_fra0</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">x</span>, size <span class="op">=</span> <span class="fl">4</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="rgeoservices_files/figure-html/map_coordinates_city-1.png" width="700"></p>
+</div>
+</div>
+<div class="section level3">
+<h3 id="retrieve-address-or-point-of-interest">Retrieve address or point of interest<a class="anchor" aria-label="anchor" href="#retrieve-address-or-point-of-interest"></a>
+</h3>
+<p>…</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="the-altimetry-service">The Altimetry service<a class="anchor" aria-label="anchor" href="#the-altimetry-service"></a>
+</h2>
+<p>…</p>
+</div>
+<div class="section level2">
+<h2 id="the-route-planner-service">The Route planner service<a class="anchor" aria-label="anchor" href="#the-route-planner-service"></a>
+</h2>
+<p>…</p>
+</div>
+<div class="section level2">
+<h2 id="the-isochrone-service">The Isochrone service<a class="anchor" aria-label="anchor" href="#the-isochrone-service"></a>
+</h2>
+<p>…</p>
+</div>
+<div class="section level2">
+<h2 id="the-isodistance-service">The Isodistance service<a class="anchor" aria-label="anchor" href="#the-isodistance-service"></a>
+</h2>
+<p>…</p>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
