@@ -23,8 +23,11 @@ Imports:
     httr2,
     sf
 Suggests: 
+    geodata,
+    ggplot2,
     httptest2,
     knitr,
+    mapview,
     rmarkdown,
     testthat (>= 3.0.0)
 Roxygen: list(markdown = TRUE)
