@@ -173,7 +173,7 @@ ggplot() +
 ```
 
 
-### Retrieve address or point of interest
+### Retrieve address or POI
 
 ...
 

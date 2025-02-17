@@ -1,6 +1,5 @@
 url: https://ahasverus.github.io/rgeoservices
 
 template:
+  package: tidytemplate
   bootstrap: 5
-  bslib:
-    primary: "#2b4370"
