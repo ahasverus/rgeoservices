@@ -17,7 +17,7 @@
 #' @param index a `character` of length 1. The type of location. Possible 
 #'   values: `address` and `poi`.
 #' 
-#' @param postcode a `numeric` of length 1 (optional). Can be used to filter 
+#' @param postcode a `character` of length 1 (optional). Can be used to filter 
 #'   results based on the postal code.
 #' 
 #' @param type a `character` of length 1 (optional). Can be used to filter 
@@ -126,9 +126,8 @@ gs_get_coordinates <- function(query, index = "address", limit = 10,
   if (!is.null(postcode)) {
 
     check_required_arg(postcode)
-    check_numeric_arg(postcode)
+    check_character_arg(postcode)
     check_arg_length(postcode, len = 1L)
-    check_positive_arg(postcode)
     
   } else {
 

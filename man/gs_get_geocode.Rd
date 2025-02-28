@@ -28,7 +28,7 @@ Possible values: \code{address} and \code{poi}.}
 \item{limit}{a \code{numeric} of length 1. The maximum number of results to
 return (between 1 and 20).}
 
-\item{postcode}{a \code{numeric} of length 1 (optional). Can be used to filter
+\item{postcode}{a \code{character} of length 1 (optional). Can be used to filter
 results based on the postal code.}
 
 \item{type}{a \code{character} of length 1 (optional). Can be used to filter

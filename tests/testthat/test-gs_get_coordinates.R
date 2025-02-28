@@ -170,8 +170,8 @@ test_that("Test gs_get_coordinates() - Error (postcode)", {
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
                        index    = "address", 
-                       postcode = "toto"), 
-    "The argument 'postcode' must be a numeric",
+                       postcode = 12345), 
+    "The argument 'postcode' must be a character",
     fixed = TRUE
   )
 
@@ -179,16 +179,7 @@ test_that("Test gs_get_coordinates() - Error (postcode)", {
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
                        index    = "address", 
-                       postcode = -75000), 
-    "The argument 'postcode' must be strictly positive",
-    fixed = TRUE
-  )
-
-  expect_error(
-    gs_get_coordinates(query    = "Paris",
-                       limit    = 1,
-                       index    = "address", 
-                       postcode = c(75000, 75001)), 
+                       postcode = c("75000", "75001")), 
     "The argument 'postcode' must be of length 1",
     fixed = TRUE
   )  
@@ -201,7 +192,7 @@ test_that("Test gs_get_coordinates() - Error (type)", {
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
                        index    = "address", 
-                       postcode = 75000,
+                       postcode = "75000",
                        type     = NA), 
     "The argument 'type' is required",
     fixed = TRUE
@@ -211,7 +202,7 @@ test_that("Test gs_get_coordinates() - Error (type)", {
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
                        index    = "address", 
-                       postcode = 75000,
+                       postcode = "75000",
                        type     = ""), 
     "The argument 'type' is required",
     fixed = TRUE
@@ -221,7 +212,7 @@ test_that("Test gs_get_coordinates() - Error (type)", {
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
                        index    = "address", 
-                       postcode = 75000,
+                       postcode = "75000",
                        type     = 12), 
     "The argument 'type' must be a character",
     fixed = TRUE
@@ -231,7 +222,7 @@ test_that("Test gs_get_coordinates() - Error (type)", {
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
                        index    = "address", 
-                       postcode = 75000,
+                       postcode = "75000",
                        type     = c("housenumber", "street")), 
     "The argument 'type' must be of length 1",
     fixed = TRUE
@@ -241,7 +232,7 @@ test_that("Test gs_get_coordinates() - Error (type)", {
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
                        index    = "address", 
-                       postcode = 75000,
+                       postcode = "75000",
                        type     = "toto"), 
     paste0("The argument 'type' should be one of \"housenumber\", \"street\", ", 
            "\"street\", \"locality\", \"municipality\""),
@@ -252,7 +243,7 @@ test_that("Test gs_get_coordinates() - Error (type)", {
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
                        index    = "poi", 
-                       postcode = 75000,
+                       postcode = "75000",
                        type     = "housenumber"), 
     "Argument 'type' can be used only with index = 'address'",
     fixed = TRUE
@@ -266,7 +257,7 @@ test_that("Test gs_get_coordinates() - Error (city)", {
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
                        index    = "address", 
-                       postcode = 75000,
+                       postcode = "75000",
                        type     = "street",
                        city     = NA), 
     "The argument 'city' is required",
@@ -277,7 +268,7 @@ test_that("Test gs_get_coordinates() - Error (city)", {
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
                        index    = "address", 
-                       postcode = 75000,
+                       postcode = "75000",
                        type     = "street",
                        city     = ""), 
     "The argument 'city' is required",
@@ -288,7 +279,7 @@ test_that("Test gs_get_coordinates() - Error (city)", {
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
                        index    = "address", 
-                       postcode = 75000,
+                       postcode = "75000",
                        type     = "street",
                        city     = 12), 
     "The argument 'city' must be a character",
@@ -299,7 +290,7 @@ test_that("Test gs_get_coordinates() - Error (city)", {
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
                        index    = "address", 
-                       postcode = 75000,
+                       postcode = "75000",
                        type     = "street",
                        city     = c("Paris", "Paris")), 
     "The argument 'city' must be of length 1",
@@ -310,7 +301,7 @@ test_that("Test gs_get_coordinates() - Error (city)", {
     gs_get_coordinates(query    = "Paris",
                        limit    = 1,
                        index    = "address", 
-                       postcode = 75000,
+                       postcode = "75000",
                        type     = "street",
                        city     = "Paris"), 
     "Please use 'postcode' or 'city' (not both)",
@@ -526,7 +517,7 @@ with_mock_dir("gs_get_coordinates", {
     
     x <- gs_get_coordinates(query    = "Mairie de Montpellier",
                             index    = "poi",
-                            postcode = 34000)
+                            postcode = "34000")
     
     expect_true("data.frame" %in% class(x))
     expect_true(nrow(x) ==  7L)
