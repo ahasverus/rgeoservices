@@ -347,15 +347,6 @@ test_that("Test gs_get_coordinates() - Error (category)", {
     "The argument 'category' must be of length 1",
     fixed = TRUE
   )
-
-  expect_error(
-    gs_get_coordinates(query    = "Paris",
-                       limit    = 1,
-                       index    = "address", 
-                       category = "lac"), 
-    "Argument 'category' can be used only with index = 'poi'",
-    fixed = TRUE
-  )
 })
 
 
@@ -470,6 +461,15 @@ with_mock_dir("gs_get_coordinates_error", {
                          index    = "poi", 
                          category = "toto"), 
       "Unvalid value for 'category'. Please use 'gs_get_poi_categories()'",
+      fixed = TRUE
+    )
+
+    expect_error(
+      gs_get_coordinates(query    = "Paris",
+                         limit    = 1,
+                         index    = "address", 
+                         category = "lac"), 
+      "Argument 'category' can be used only with index = 'poi'",
       fixed = TRUE
     )
   })
