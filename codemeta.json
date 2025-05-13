@@ -2,8 +2,8 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "rgeoservices",
-  "description": "A paragraph providing a full description of the project (on several lines...)",
-  "name": "rgeoservices: The Title of the Project",
+  "description": "A set of functions to query the API provided by the French National Institute of Geographic and Forest Information (IGN) through its online Geoplateform <https://geoservices.ign.fr/documentation/services/services-geoplateforme>.",
+  "name": "rgeoservices: A R Client for the IGN Geoservices API ",
   "codeRepository": "https://github.com/ahasverus/rgeoservices",
   "issueTracker": "https://github.com/ahasverus/rgeoservices/issues",
   "license": "https://spdx.org/licenses/GPL-2.0",
@@ -13,7 +13,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.4.2 (2024-10-31)",
+  "runtimePlatform": "R version 4.5.0 (2025-04-11)",
   "author": [
     {
       "@type": "Person",
@@ -44,6 +44,42 @@
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
+      "identifier": "geodata",
+      "name": "geodata",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=geodata"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "ggplot2",
+      "name": "ggplot2",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=ggplot2"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "httptest2",
+      "name": "httptest2",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=httptest2"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "knitr",
       "name": "knitr",
       "provider": {
@@ -53,6 +89,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "mapview",
+      "name": "mapview",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=mapview"
     },
     {
       "@type": "SoftwareApplication",
@@ -81,9 +129,39 @@
     }
   ],
   "softwareRequirements": {
+    "1": {
+      "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 4.2.0"
+    },
+    "2": {
+      "@type": "SoftwareApplication",
+      "identifier": "httr2",
+      "name": "httr2",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=httr2"
+    },
+    "3": {
+      "@type": "SoftwareApplication",
+      "identifier": "sf",
+      "name": "sf",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=sf"
+    },
     "SystemRequirements": null
   },
-  "fileSize": "187.381KB",
+  "fileSize": "2489.878KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -94,10 +172,11 @@
           "name": "Casajus Nicolas"
         }
       ],
-      "name": "rgeoservices: {An} {R} package to ...",
+      "name": "rgeoservices: {A} {R} client for the IGN Geoservices API",
       "url": "https://github.com/ahasverus/rgeoservices",
       "description": "R package version 0.0.0.9000"
     }
   ],
-  "readme": "https://github.com/ahasverus/rgeoservices/blob/main/README.md"
+  "readme": "https://github.com/ahasverus/rgeoservices/blob/main/README.md",
+  "contIntegration": ["https://github.com/ahasverus/rgeoservices/actions/workflows/R-CMD-check.yaml", "https://github.com/ahasverus/rgeoservices/actions/workflows/pkgdown.yaml", "https://github.com/ahasverus/rgeoservices/actions/workflows/test-coverage.yaml", "https://codecov.io/gh/ahasverus/rgeoservices"]
 }

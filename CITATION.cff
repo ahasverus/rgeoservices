@@ -7,9 +7,10 @@ cff-version: 1.2.0
 message: 'To cite package "rgeoservices" in publications use:'
 type: software
 license: GPL-2.0-or-later
-title: 'rgeoservices: The Title of the Project'
+title: 'rgeoservices: A R Client for the IGN Geoservices API'
 version: 0.0.0.9000
-abstract: A paragraph providing a full description of the project (on several lines...)
+abstract: A set of functions to query the API provided by the French National Institute
+  of Geographic and Forest Information (IGN) through its online Geoplateform <https://geoservices.ign.fr/documentation/services/services-geoplateforme>.
 authors:
 - family-names: Casajus
   given-names: Nicolas
@@ -17,7 +18,7 @@ authors:
   orcid: https://orcid.org/0000-0002-5537-5294
 preferred-citation:
   type: manual
-  title: 'rgeoservices: An R package to ...'
+  title: 'rgeoservices: A R client for the IGN Geoservices API'
   authors:
   - name: Casajus Nicolas
   year: '2025'
@@ -32,6 +33,112 @@ contact:
   orcid: https://orcid.org/0000-0002-5537-5294
 references:
 - type: software
+  title: 'R: A Language and Environment for Statistical Computing'
+  notes: Depends
+  url: https://www.R-project.org/
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2025'
+  version: '>= 4.2.0'
+- type: software
+  title: httr2
+  abstract: 'httr2: Perform HTTP Requests and Process the Responses'
+  notes: Imports
+  url: https://httr2.r-lib.org
+  repository: https://CRAN.R-project.org/package=httr2
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2025'
+  doi: 10.32614/CRAN.package.httr2
+- type: software
+  title: sf
+  abstract: 'sf: Simple Features for R'
+  notes: Imports
+  url: https://r-spatial.github.io/sf/
+  repository: https://CRAN.R-project.org/package=sf
+  authors:
+  - family-names: Pebesma
+    given-names: Edzer
+    email: edzer.pebesma@uni-muenster.de
+    orcid: https://orcid.org/0000-0001-8049-7069
+  year: '2025'
+  doi: 10.32614/CRAN.package.sf
+- type: software
+  title: geodata
+  abstract: 'geodata: Download Geographic Data'
+  notes: Suggests
+  url: https://github.com/rspatial/geodata/issues/
+  repository: https://CRAN.R-project.org/package=geodata
+  authors:
+  - family-names: Hijmans
+    given-names: Robert J.
+  - family-names: Barbosa
+    given-names: Márcia
+  - family-names: Ghosh
+    given-names: Aniruddha
+  - family-names: Mandel
+    given-names: Alex
+  year: '2025'
+  doi: 10.32614/CRAN.package.geodata
+- type: software
+  title: ggplot2
+  abstract: 'ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics'
+  notes: Suggests
+  url: https://ggplot2.tidyverse.org
+  repository: https://CRAN.R-project.org/package=ggplot2
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+    orcid: https://orcid.org/0000-0003-4757-117X
+  - family-names: Chang
+    given-names: Winston
+    orcid: https://orcid.org/0000-0002-1576-2126
+  - family-names: Henry
+    given-names: Lionel
+  - family-names: Pedersen
+    given-names: Thomas Lin
+    email: thomas.pedersen@posit.co
+    orcid: https://orcid.org/0000-0002-5147-4711
+  - family-names: Takahashi
+    given-names: Kohske
+  - family-names: Wilke
+    given-names: Claus
+    orcid: https://orcid.org/0000-0002-7470-9261
+  - family-names: Woo
+    given-names: Kara
+    orcid: https://orcid.org/0000-0002-5125-4188
+  - family-names: Yutani
+    given-names: Hiroaki
+    orcid: https://orcid.org/0000-0002-3385-7233
+  - family-names: Dunnington
+    given-names: Dewey
+    orcid: https://orcid.org/0000-0002-9415-4582
+  - family-names: Brand
+    given-names: Teun
+    name-particle: van den
+    orcid: https://orcid.org/0000-0002-9335-7468
+  year: '2025'
+  doi: 10.32614/CRAN.package.ggplot2
+- type: software
+  title: httptest2
+  abstract: 'httptest2: Test Helpers for ''httr2'''
+  notes: Suggests
+  url: https://enpiar.com/httptest2/
+  repository: https://CRAN.R-project.org/package=httptest2
+  authors:
+  - family-names: Richardson
+    given-names: Neal
+    email: neal.p.richardson@gmail.com
+    orcid: https://orcid.org/0009-0002-7992-3520
+  year: '2025'
+  doi: 10.32614/CRAN.package.httptest2
+- type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
   notes: Suggests
@@ -44,6 +151,27 @@ references:
     orcid: https://orcid.org/0000-0003-0645-5666
   year: '2025'
   doi: 10.32614/CRAN.package.knitr
+- type: software
+  title: mapview
+  abstract: 'mapview: Interactive Viewing of Spatial Data in R'
+  notes: Suggests
+  url: https://github.com/r-spatial/mapview
+  repository: https://CRAN.R-project.org/package=mapview
+  authors:
+  - family-names: Appelhans
+    given-names: Tim
+    email: tim.appelhans@gmail.com
+  - family-names: Detsch
+    given-names: Florian
+    email: fdetsch@web.de
+  - family-names: Reudenbach
+    given-names: Christoph
+    email: reudenbach@geo.uni-marburg.de
+  - family-names: Woellauer
+    given-names: Stefan
+    email: stephan.woellauer@geo.uni-marburg.de
+  year: '2025'
+  doi: 10.32614/CRAN.package.mapview
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
