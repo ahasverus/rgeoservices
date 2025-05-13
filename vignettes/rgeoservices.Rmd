@@ -73,7 +73,7 @@ x <- gs_get_coordinates(
   query    = "5 rue de l'Ecole de Médecine", 
   index    = "address",
   limit    = 10,
-  postcode = 34000,
+  postcode = "34000",
   type     = "housenumber"
 )
 ```
@@ -126,7 +126,7 @@ x <- gs_get_coordinates(
   query    = "Montpellier", 
   index    = "address",
   limit    = 10,
-  postcode = 34000,
+  postcode = "34000",
   type     = "municipality" 
 )
 ```
