@@ -3,7 +3,7 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   rgeoservices: rgeoservices.html
-last_built: 2025-12-15T13:43Z
+last_built: 2025-12-15T13:45Z
 urls:
   reference: https://ahasverus.github.io/rgeoservices/reference
   article: https://ahasverus.github.io/rgeoservices/articles
