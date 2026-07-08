@@ -13,6 +13,7 @@ locations**.
 Let’s load and attach the package `rgeoservices`.
 
 ``` r
+
 ## Attach 'rgeoservices' package ----
 library(rgeoservices)
 library(mapview)
@@ -45,6 +46,7 @@ function of `rgeoservices`.
 Let’s try to retrieve geographical coordinates of a **postal address**.
 
 ``` r
+
 ## Retrieve coordinates from an address ----
 x <- gs_get_coordinates(
   query = "5 rue de l'Ecole de Médecine", 
@@ -53,10 +55,10 @@ x <- gs_get_coordinates(
 )
 ```
 
-| query                        | longitude | latitude | label                                     | name                         | toponym | housenumber | street                     | city        | postcode | citycode | context                  | category |   score |
-|:-----------------------------|----------:|---------:|:------------------------------------------|:-----------------------------|:--------|:------------|:---------------------------|:------------|:---------|:---------|:-------------------------|:---------|--------:|
-| 5 rue de l’Ecole de Médecine |  2.341955 | 48.85059 | 5 Rue de l’Ecole de Médecine 75006 Paris  | 5 Rue de l’Ecole de Médecine | NA      | 5           | Rue de l’Ecole de Médecine | Paris       | 75006    | 75106    | 75, Paris, Île-de-France | NA       | 0.96654 |
-| 5 rue de l’Ecole de Médecine |  3.873477 | 43.61278 | 5 Rue Ecole de Médecine 34000 Montpellier | 5 Rue Ecole de Médecine      | NA      | 5           | Rue Ecole de Médecine      | Montpellier | 34000    | 34172    | 34, Hérault, Occitanie   | NA       | 0.80125 |
+| query | longitude | latitude | label | name | toponym | housenumber | street | city | postcode | citycode | context | category | score |
+|:---|---:|---:|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|---:|
+| 5 rue de l’Ecole de Médecine | 2.341955 | 48.85059 | 5 Rue de l’Ecole de Médecine 75006 Paris | 5 Rue de l’Ecole de Médecine | NA | 5 | Rue de l’Ecole de Médecine | Paris | 75006 | 75106 | 75, Paris, Île-de-France | NA | 0.96654 |
+| 5 rue de l’Ecole de Médecine | 3.873477 | 43.61278 | 5 Rue Ecole de Médecine 34000 Montpellier | 5 Rue Ecole de Médecine | NA | 5 | Rue Ecole de Médecine | Montpellier | 34000 | 34172 | 34, Hérault, Occitanie | NA | 0.80125 |
 
 The argument `index` is used to indicate to search from an address
 (`index = 'address'`) or a point of interest (`index = 'poi'`).
@@ -70,6 +72,7 @@ User can filter results by using additional parameters:
   `street`, `locality`, or `municipality`
 
 ``` r
+
 ## Retrieve coordinates from an address (with filters) ----
 x <- gs_get_coordinates(
   query    = "5 rue de l'Ecole de Médecine", 
@@ -80,15 +83,16 @@ x <- gs_get_coordinates(
 )
 ```
 
-| query                        | longitude | latitude | label                                     | name                    | toponym | housenumber | street                | city        | postcode | citycode | context                | category |   score |
-|:-----------------------------|----------:|---------:|:------------------------------------------|:------------------------|:--------|:------------|:----------------------|:------------|:---------|:---------|:-----------------------|:---------|--------:|
-| 5 rue de l’Ecole de Médecine |  3.873477 | 43.61278 | 5 Rue Ecole de Médecine 34000 Montpellier | 5 Rue Ecole de Médecine | NA      | 5           | Rue Ecole de Médecine | Montpellier | 34000    | 34172    | 34, Hérault, Occitanie | NA       | 0.80125 |
+| query | longitude | latitude | label | name | toponym | housenumber | street | city | postcode | citycode | context | category | score |
+|:---|---:|---:|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|---:|
+| 5 rue de l’Ecole de Médecine | 3.873477 | 43.61278 | 5 Rue Ecole de Médecine 34000 Montpellier | 5 Rue Ecole de Médecine | NA | 5 | Rue Ecole de Médecine | Montpellier | 34000 | 34172 | 34, Hérault, Occitanie | NA | 0.80125 |
 
 Using these filters can help getting better results.
 
 Let’s display the result on an interactive map.
 
 ``` r
+
 ## Convert to spatial object ----
 x <- sf::st_as_sf(
   x      = x,
@@ -117,6 +121,7 @@ mapview(
 Let’s try to retrieve geographical coordinates of a **city**.
 
 ``` r
+
 ## Retrieve coordinates from a city ----
 x <- gs_get_coordinates(
   query    = "Montpellier", 
@@ -127,13 +132,14 @@ x <- gs_get_coordinates(
 )
 ```
 
-| query       | longitude | latitude | label       | name        | toponym | housenumber | street | city        | postcode | citycode | context                | category |   score |
-|:------------|----------:|---------:|:------------|:------------|:--------|:------------|:-------|:------------|:---------|:---------|:-----------------------|:---------|--------:|
-| Montpellier |   3.87048 | 43.61048 | Montpellier | Montpellier | NA      | NA          | NA     | Montpellier | 34000    | 34172    | 34, Hérault, Occitanie | NA       | 0.96146 |
+| query | longitude | latitude | label | name | toponym | housenumber | street | city | postcode | citycode | context | category | score |
+|:---|---:|---:|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|---:|
+| Montpellier | 3.87048 | 43.61048 | Montpellier | Montpellier | NA | NA | NA | Montpellier | 34000 | 34172 | 34, Hérault, Occitanie | NA | 0.96146 |
 
 Let’s map the result.
 
 ``` r
+
 ## Convert to spatial object ----
 x <- sf::st_as_sf(
   x      = x,
@@ -143,6 +149,7 @@ x <- sf::st_as_sf(
 ```
 
 ``` r
+
 ## Download static map of France (GADM) ----
 gadm_fra0 <- geodata::gadm(
   country = "France",
@@ -152,6 +159,7 @@ gadm_fra0 <- geodata::gadm(
 ```
 
 ``` r
+
 ggplot() + 
   geom_sf(data = gadm_fra0) + 
   geom_sf(data = x, size = 4, col = "red") + 

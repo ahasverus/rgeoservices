@@ -62,6 +62,7 @@ You can install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r
+
 ## Install 'remotes' package (if not already installed) ----
 if (!requireNamespace("remotes", quietly = TRUE)) {
   install.packages("remotes")
@@ -74,6 +75,7 @@ remotes::install_github("ahasverus/rgeoservices")
 Then you can attach the package `rgeoservices`:
 
 ``` r
+
 library("rgeoservices")
 ```
 
